@@ -1,11 +1,12 @@
-/* N:5 ; */
-/* sum( 1 /  (n * sum(1/k, k, 1, n ) ) , n, 1, N ) ; */
-/* float(%) ; */
+linel:120 ;
 
-for N : 1 thru 50 do 
+for N : 1 thru 100 do 
 ( display (N),
-  series : sum( 1 /  (n * sum(1/k, k, 1, n ) ) , n, 1, N ),
-  display(series),
-  display(float(series)),
-  display(factor(series))
+  H2 : sum( 1 /  (n * sum(1/k, k, 1, n ) ) , n, 1, N ),
+  display(H2),
+  /* display(float(H2)), */
+  display(mod(num(H2), 3)),
+  display(mod(denom(H2), 3)),
+  display(mod(denom(H2), 9))
   ) ;
+
