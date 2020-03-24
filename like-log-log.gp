@@ -1,15 +1,30 @@
 H1(n) = sum(k=1, n, 1/k) ;
-H2(m) = sum(n=1, m, 1/(n * H1(n))) ;
+H2(n) = sum(k=1, n, 1/(k * H1(k))) ;
 
-valpart(H) = -valuation(H,3) ;
-modpart(H,val) = Mod(  H * 3^val, 3) ;
+N = 40000 ;
+h2 = 0 ;
 
-m=50 ;
-for(n=1, m, h=H2(n); fd = factor(denominator(h)); print1(n, ", ", fd, "\n" ))
+for(n=1, N, \
+	 h2 = h2 + 1/(n*H1(n)); \
+	 d = denominator(h2); \
+	 v5 = valuation(d,5); \
+	 v7 = valuation(d,7); \
+	 v11 = valuation(d,11); \
+	 if(v5!=2 || v7!=2 || v11 !=2 || Mod(n,1000)==0 ,print1(n, ", fives:", v5, ", sevens:" v7, ", elevens:" v11,  "\n")))
 
-/* m=20 ;
-for(n=1, m, h=H2(n); fn = factor(numerator(h)); fd = factor(denominator(h)); print1(n, ", ", fn, ", ", fd, "\n" )) */
 
-/* m=1000 ;
-for(n=1, m, h=H2(n); v = valpart(h); print1(n, ", ", v, ", ", modpart(h,v), "\n" )) */
 
+
+
+
+
+/*
+valpart(Q) = -valuation(Q,3) ;
+modpart(Q) = Mod(  Q * 3^valpart(Q), 3) ;
+*/
+
+/*
+Mod(denominator(H2(2498)),5)
+Mod(denominator(H2(2499)),5)
+Mod(denominator(H2(2500)),5)
+Mod(denominator(H2(2501)),5) */
