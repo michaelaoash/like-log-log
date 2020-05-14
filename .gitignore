@@ -1,7 +1,10 @@
+*~
 .*~
 .Rout
 .rout
 .out
+.err
 .gpout
 .pdf
-
+results/
+results/*
