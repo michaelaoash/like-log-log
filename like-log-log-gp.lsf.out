@@ -1,1 +1,64 @@
 Hello Job 7572596. You are being run on c39b11
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@c39b11>
+Subject: Job 7572596: <like-log-log-gp> in cluster <umghpcc> Exited
+
+Job <like-log-log-gp> was submitted from host <ghpcc06> by user <ma30a> in cluster <umghpcc> at Thu May 14 14:33:31 2020
+Job was executed on host(s) <c39b11>, in queue <long>, as user <ma30a> in cluster <umghpcc> at Thu May 14 14:33:31 2020
+</home/ma30a> was used as the home directory.
+</home/ma30a/Desktop/like-log-log> was used as the working directory.
+Started at Thu May 14 14:33:31 2020
+Terminated at Fri May 15 06:32:59 2020
+Results reported at Fri May 15 06:32:59 2020
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+
+## Run this with "bsub < like-log-log-gp.lsf"
+
+#BSUB -n 1
+#BSUB -R rusage[mem=2048] # ask for memory
+#BSUB -q long # which queue we want to run in  short long interactive
+#BSUB -R "span[hosts=1]" # All job slots in the same node (for threaded applications)
+#BSUB -W 960
+#BSUB -J "like-log-log-gp"
+#BSUB -o like-log-log-gp.lsf.out
+#BSUB -e like-log-log-gp.lsf.err
+
+echo "Hello Job $LSB_JOBID. You are being run on `hostname`"
+
+module load pari/2.11.3 
+
+gp < like-log-log.gp > "results/like-log-log-gp-$USER-`date`.out"
+
+
+------------------------------------------------------------
+
+TERM_CPULIMIT: job killed after reaching LSF CPU usage limit.
+Exited with signal termination: 24.
+
+Resource usage summary:
+
+    CPU time :                                   57607.00 sec.
+    Max Memory :                                 615 MB
+    Average Memory :                             382.79 MB
+    Total Requested Memory :                     2048.00 MB
+    Delta Memory :                               1433.00 MB
+    Max Swap :                                   -
+    Max Processes :                              4
+    Max Threads :                                5
+    Run time :                                   57570 sec.
+    Turnaround time :                            57568 sec.
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <like-log-log-gp.lsf.err> for stderr output of this job.
+
