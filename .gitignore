@@ -7,3 +7,9 @@
 .gpout
 .pdf
 results/*
+*.Rout
+*.rout
+*.out
+*.err
+*.gpout
+*.pdf

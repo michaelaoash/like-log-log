@@ -3,7 +3,7 @@ H2(n) = sum(k=1, n, 1/(k * H1(k))) ;
 
 default(parisize, 1200000000)
 
-N = 40000 ;
+N = 60000 ;
 h2 = 0 ;
 for(n=1, N, \
 	 h2 = h2 + 1/(n*H1(n)); \
