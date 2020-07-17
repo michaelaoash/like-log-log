@@ -6,6 +6,8 @@
 .err
 .gpout
 .pdf
+.log
+.aux
 results/*
 *.Rout
 *.rout
@@ -13,3 +15,5 @@ results/*
 *.err
 *.gpout
 *.pdf
+*.log
+*.aux
