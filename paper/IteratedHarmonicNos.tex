@@ -2,6 +2,7 @@
 \documentclass{article}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsfonts}
+\usepackage{float}
 \usepackage{sw20amm1}
 
 %TCIDATA{OutputFilter=LATEX.DLL}
@@ -9,7 +10,7 @@
 %TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
 %TCIDATA{BibliographyScheme=Manual}
 %TCIDATA{Created=Friday, July 10, 2020 16:41:41}
-%TCIDATA{LastRevised=Friday, July 17, 2020 09:07:45}
+%TCIDATA{LastRevised=Wednesday, July 22, 2020 22:17:39}
 %TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
 %TCIDATA{<META NAME="DocumentShell" CONTENT="Articles\SW\Similar to MAA Monthly before 1992">}
 %TCIDATA{Language=American English}
@@ -82,12 +83,12 @@ particular there is a constant $\gamma $ so that as $n\rightarrow \infty
 \item They are \textquotedblleft close\textquotedblright\ to very similar,
 but convergent, sequences, for example, $\sum_{k=1}^{\infty }\frac{1}{k}$
 diverges, but, for any fixed small positive number $\epsilon ,$ $%
-\sum_{k=1}^{\infty }\frac{1}{k^{1+\epsilon }}$ converges.
+\sum_{k=1}^{\infty }\frac{1}{k^{1+\epsilon }}$ converges,
 
 \item The only harmonic number that is an integer is $1$.,
 \end{enumerate}
 
-We now define the iterated harmonic numbers of order $k$, $H_{k}(n)$, for $%
+We define the iterated harmonic numbers of order $k$, $H_{k}(n)$, for $%
 k=2,3,\dots ,$ . First define $H_{2}\left( n\right) :=\sum_{k=1}^{n}\frac{1}{%
 kH_{1}\left( k\right) }$, then $H_{3}\left( n\right) :=\sum_{k=1}^{n}\frac{1%
 }{kH_{1}\left( k\right) H_{2}\left( k\right) },$ and so on. Thus, for every
@@ -108,27 +109,256 @@ like\textquotedblright\ the integral $\int_{a}^{n}f\left( x\right) dx.$ This
 point will be made a lot more precisely in section 3 where we will prove
 analogues of item 3.
 
-Property 5.was proved in 1915. Here is an elementary number theory proof.
-Fix $n\geq 2$, choose $r$ maximal so that $2^{r}\leq n,$ and write 
+Property 5.was proved in 1915.[Th] Here is an elementary number theory
+proof. Fix $n\geq 2$, choose $r$ maximal so that $2^{r}\leq n,$ and write 
 \[
 H_{1}\left( n\right) =1+\frac{1}{2}+\frac{1}{3}+\cdots +\frac{1}{2^{r}}%
 +\cdots +\frac{1}{n}=\left( \sum_{k\neq 2^{r}}\frac{a_{k}}{L}\right) +\left( 
 \frac{a_{2^{r}}}{L}\right) 
 \]%
-where $L=\func{lcm}\left\{ 1,2,3,\dots ,n\right\} ,$ and $H_{1}\left(
-n\right) $ is the fraction $\frac{\left( \sum_{k\neq 2^{r}}a_{k}\right)
-+a_{2^{r}}}{L}=\frac{S+T}{L}$ Fix $k\in \left[ 1,n\right] ,$ and $k\neq 2^{r}
-$. Then $k=2^{s}\mathfrak{o}$ with $\mathfrak{o}$ odd and $s<r.$ This is
-true because $2^{r}$ is the first positive integer divisible by $2^{r};$ and
-the second positive integer divisible by $2^{r}$ is $2\cdot 2^{r}=2^{r+1}$
-which cannot be $\leq n$ because of the way $r$ was chosen. Thus $L=2^{r}d$
-for some odd integer $d$ and $\frac{1}{k}=\frac{1}{2^{s}\mathfrak{o}}=\frac{%
-a_{k}}{L}=\frac{a_{k}}{2^{r}d}$, so $a_{k}=\frac{2^{r}d}{2^{s}\mathfrak{o}}%
-=2^{r-s}\left( \frac{d}{\mathfrak{o}}\right) $ with $r-s>0$ and $\left( 
-\frac{d}{\mathfrak{o}}\right) $ an odd integer. So every summand of $S$ is
-even and hence $S$ is even. But $\frac{1}{2^{r}}=\left( \frac{a_{2^{r}}}{L}%
-\right) ,$ so $T=a_{2^{r}}=\frac{L}{2^{r}}=\frac{2^{r}d}{2^{r}}=d$ is odd.
-Thus $H_{1}\left( n\right) $, a fraction with odd numerator $S+T$ and even
+where $L=\func{lcm}\left\{ 1,2,3,\dots ,n\right\} ,$each $a_{k}$ is the
+integer such that $\frac{1}{k}=\frac{a_{k}}{L}$ and $H_{1}\left( n\right) $
+is the fraction $\frac{\left( \sum_{k\neq 2^{r}}a_{k}\right) +\left(
+a_{2^{r}}\right) }{L}=:\frac{S+T}{L}$ Fix $k\in \left[ 1,n\right] ,$ and $%
+k\neq 2^{r}$. Then $k=2^{s}\mathfrak{o}$ with $\mathfrak{o}$ odd and $s<r.$
+This is true because $2^{r}$ is the first positive integer divisible by $%
+2^{r};$ and the second positive integer divisible by $2^{r}$ is $2\cdot
+2^{r}=2^{r+1}$ which cannot be $\leq n$ because of the way $r$ was chosen.
+Thus $L=2^{r}d$ where we will call the odd integer $d$ the \textit{odd factor%
+} of $L.$Then $\frac{1}{k}=\frac{1}{2^{s}\mathfrak{o}}=\frac{a_{k}}{L}=\frac{%
+a_{k}}{2^{r}d}$, so $a_{k}=\frac{2^{r}d}{2^{s}\mathfrak{o}}=2^{r-s}\cdot 
+\frac{d}{\mathfrak{o}}$ with $r-s>0$ and, since $d$ is the $\func{lcm}\ $of
+the set of all the odd factors of all the positive integers $\leq n$, $\frac{%
+d}{\mathfrak{o}}$ is an odd integer. So every summand of $S$ is even and
+hence $S$ is even. But $\frac{1}{2^{r}}=\frac{a_{2^{r}}}{L},$ so $%
+T=a_{2^{r}}=\frac{L}{2^{r}}=\frac{2^{r}d}{2^{r}}=d$ is odd. Thus $%
+H_{1}\left( n\right) $, a fraction with odd numerator $S+T$ and even
 denominator $L=2^{r}d$, is not an integer.
 
+In section 2 we make the conjecture that property 5. extends to $H_{j}\ $for
+every $j$. For $j=2\ $and $3$ we give substantial numerical evidence in
+support of the conjectures. In the case of $H_{2}$, the evidence shows that
+the above proof that the denominator of $H_{1}$ must be a multiple of $2$
+and so can never be an integer will not work. In the case of $H_{3}$, the
+evidence gives a lot of hope for finding an extension of the original proof.
+
+In section 3 we define for each integer $j$ two analogues of Euler's
+constant $\gamma $. We define $\gamma _{j}$to be a constant satisfying
+
+\begin{equation}
+\sum_{a<k\leq n}\frac{1}{k\ln k\ln _{2}k\cdots \ln _{j-1}k}-\ln _{j}n=\gamma
+_{j}+o\left( 1\right) .  \tag{1}  \label{1}
+\end{equation}%
+(Pick $a=a\left( j\right) $ so large that $\ln _{j-1}\left( a\right) \geq 0$%
+; for example, if $j\geq 3,$ one may choose $a$ to be $^{j-2}e,$where the
+constants  $^{j}e$ are defined recursively by $^{1}e:=e$ and $%
+^{j+1}e:=e^{(^{j}e)}$ for $j=1,2,\dots $.)
+
+We also define $\gamma _{j}^{\prime }$ to be a constant satisfying 
+\begin{equation}
+H_{j}\left( n\right) -\ln _{j}n=\sum_{k=1}^{n}\frac{1}{kH_{1}\left( k\right)
+H_{2}\left( k\right) \cdots H_{j-1}\left( k\right) }-\ln _{j}n=\gamma
+_{j}^{\prime }+o\left( 1\right) .  \tag{2}  \label{2}
+\end{equation}
+
+We can now extend property 4. to $j$th iterates. The extension for iterated
+logarithms is already known: The infinite series $\sum_{a<k<\infty }\frac{1}{%
+k\ln k\ln _{2}k\cdots \ln _{j-1}k}$ is divergent since by relation (1) its
+partial sums increase unboundedly. However, for each $\epsilon >0,$ the
+series $\sum_{a<k<\infty }\frac{1}{k\ln k\ln _{2}k\cdots \ln _{j-2}k\left(
+\ln _{j-1}k\right) ^{1+\epsilon }}$ converges.[As] 
+
+Similar results also hold for iterated harmonic numbers., the infinite
+series 
+\[
+\sum_{k=1}^{\infty }\frac{1}{kH_{1}\left( k\right) H_{2}\left( k\right)
+\cdots H_{j-1}\left( k\right) }
+\]
+is divergent by relation (2). It is not hard to prove that for each $%
+\epsilon >0,$ the series $\sum_{k=1}^{\infty }\frac{1}{kH_{1}\left( k\right)
+H_{2}\left( k\right) \cdots H_{j-2}\left( k\right) \left( H_{j-1}\left(
+k\right) \right) ^{1+\epsilon }}$ converges. These pairs of infinite series
+are \textquotedblleft closer\textquotedblright\ to each other as $j$
+increases in the sense that the divergent one diverges more slowly while the
+other one converges more slowly. The logarithmic examples do not have
+rational partial sums, but the divergent harmonic sums do. If we set $%
+\epsilon =1,$then the convergent Harmonic series also have rational partial
+sums. 
+
+The case $j=2$, where $\sum_{k=1}^{\infty }\frac{1}{kH_{1}\left( k\right) }$
+being divergent is contrasted with  $\sum_{k=1}^{\infty }\frac{1}{k\left(
+H_{1}\left( k\right) \right) ^{1+\epsilon }}$ being convergent appears in
+[AsPl]. (What we denote as $H_{1}\left( n\right) $ is written as $H_{n}$ in
+[AsPl].)  It provided the main motivation for the idea of defining $j$th
+iterated harmonic numbers.
+
+\section{A conjecture for n times iterated harmonic numbers}
+
+From the definitions, it is immediate that for each $j\geq 1$, there holds
+the identity 
+\[
+H_{j}\left( 1\right) =1.
+\]
+
+\begin{conjecture}
+For each integer $j\geq 2,$ the only $j$th iterated harmonic number that is
+an integer is $H_{j}\left( 1\right) .$
+\end{conjecture}
+
+Recall that when $j=1,$ the statement of the conjecture become Property 3.
+that was mentioned and proved in the introduction.
+
+All the evidence we have accumulated points to the conjecture's truth. The
+rough argument is that the numerators of both $H_{2}\left( n\right) $ and $%
+H_{3}\left( n\right) $ seem to grow steadily larger as $n$ increases,
+whereas the failure of the conjecture would have a denominator of 1
+occurring. The proof for the $H_{1}$ case involved showing that all
+denominators were even and hence not equal to 1. The evidence for $H_{3}$
+does not rule out such a proof. The evidence for $H_{2}$ rules out an even
+denominator proof. Nevertheless it suggests many other possible proofs.
+
+Numerical evidence when $j=3:$
+
+We computed the 2-valuation of the (reduced) denominator of
+$ H_{3}\left( n\right) $ for $n=1$ to $2000$. For $n=1$, the
+2-valuation is, of course, 0. For $n=2$ to $n=11$ the 2-valuation is
+2. At $n=12$ the 2-valuation is, shockingly, 0. From $n=13$ through
+$n=31$ the 2-valuation is 3. From $n=32$ to $n=2000$, the 2-valuation
+stays at 6.
+
+Numerical evidence when $j=2:$
+
+We attempted the $p$-valuations on the denominator of
+$H_{2}\left( n\right) $ for $n=1$ to $n=40000$ for all 46 primes less
+than 200. We ceased computation when we hit computer system limits at
+$n=27477$
+
+The 2-valuation is always 0.
+
+The 3-valuation is 1 from $n=2$ to $n=53$. The 3-valuation then
+alternates irregularly between 0 and 1. Table~\ref{tab:3-val-of-H2}~(\ref{tab:3-val-of-H2-alt})
+shows the variation in the 3-valuation of $H_2\left(n\right)$ by $n$.
+\begin{table}[H]
+  \centering
+  \caption{3-valuation of the denominator $H_2\left(n\right)$}
+  \label{tab:3-val-of-H2}
+\begin{tabular}{cc}
+  3-valuation of $H_2\left(n\right)$ & $n$\\
+  0 & 1, 54--62, 66--161, 189--197, 1458--1700, 1782--4373, 5103--5345\\
+  1 & for all other values of $n<27477$
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{3-valuation of the denominator $H_2\left(n\right)$}
+  \label{tab:3-val-of-H2-alt}
+\begin{tabular}{rc}
+  $n$         & 3-valuation of $H_2\left(n\right)$\\
+  1           &  0\\
+  2--53       &  1\\
+  54--62      &  0\\
+  63--65      &  1\\
+  66--161     &  0\\
+  162--188    &  1\\
+  189--197    &  0\\
+  198--1457   &  1\\
+  1458--1700  &  0\\
+  1701--1781  &  1\\
+  1782--4373  &  0\\
+  4372--5102  &  1\\
+  5103--5345  &  0\\
+  5346--27477 &  1
+\end{tabular}
+\end{table}
+
+
+The 5-valuation is 2 from $n=4$ to $n=2499$. The 5-valuation is then 0
+from $n=2500$ to $n=2999$. The 5-valuation is then 1 from $n=3000$ to
+$n=12499$, and then the 5-valuation remains at 2 through the end of
+the run (at $n=27477$).
+
+Of the 43 remaining primes less than 200, all of them enter with
+non-zero $p$-valuations as $n$ grows. For some primes the first
+non-zero valuation is 1 and in other cases the first non-zero
+$p$-valuation is 2. For example, up to $n=6$, the 7-valuation is 0;
+beginning with $n=6$, the 7-valuation is 2 through the end of the
+run. Only the 11-valuation exceeds 2 in the run; at $n=848$, the
+11-valuation of $H_2\left(n\right)$ becomes 3 and remains 3 through
+the end of the run.
+
+\begin{table}[H]
+  \centering
+  \caption{97-valuation of the denominator of $H_2\left(n\right)$}
+  \label{tab:97-val-of-H2}
+\begin{tabular}{cc}
+  97-valuation of $H_2\left(n\right)$ & $n$\\
+  0 & 1--10, 9408-- \\
+  1 & 11--95, 9323--9407 \\
+  2 & 96--9322 
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{97-valuation of the denominator $H_2\left(n\right)$}
+  \label{tab:97-val-of-H2-alt}
+\begin{tabular}{rc}
+  $n$         & 3-valuation of $H_2\left(n\right)$\\
+  1--10       &  0\\
+  11--95      &  1\\
+  96--9322    &  2\\
+  9323--9407  &  1\\
+  9408--27477 &  0\\
+\end{tabular}
+\end{table}
+
+
+
+With a single exception among the primes between 7 and 200, once the
+prime acquires a non-zero $p$-valuation, the $p$-valuation does not
+decline. At $n=9323$, the 97-valuation returns to 1 (from 2), and
+beginning at $n=9408$, the 97-valuation falls to 0 where it remains
+through the remainder of the run. Thus, from $n=9408$ through the end
+of the run ($n=27477$), 2 and 97 are the only primes less than 200 for
+which in the denominator of $H_{2}\left( n\right) $ has a
+$p$-valuation of zero. The behavior of the 97-valuation is tabulated
+in Table~\ref{tab:97-val-of-H2}~(\ref{tab:97-val-of-H2-alt}) .
+
+
+\bigskip 
+
+\section{Generalized Euler's constants for iterated Harmonic numbers of both}
+
+\textbf{Prove the }$\gamma _{j}$\textbf{\ and }$\gamma _{j}^{\prime }$%
+\textbf{\ stuff mentioned in the introduction above. Be sure to improve the }%
+$o\left( 1\right) $\textbf{\ estimates mentioned in the introduction.}
+
+\begin{thebibliography}{AsPl}
+\bibitem[As]{A} Ash, J. M. (2009): Series involving iterated logarithms.
+College Math. J., 40, 40-42. https://condor.depaul.edu/\symbol{126}%
+mash/iteratedlogs2.1.pdf
+
+\bibitem[AsPl]{AP} Ash, J. M. and Plaza, \'{A}. : $\sum_{n=2}^{\infty }\frac{%
+1}{nH_{n-1}}$ diverges while $\sum_{n=2}^{\infty }\frac{1}{n\left(
+H_{n}\right) ^{1+\epsilon }}$ converges. The Mathematical Gazette, to
+appear. https://condor.depaul.edu/\symbol{126}mash/div\_conv\_nHn.pdf
+
+\bibitem[Th]{T} Theisinger, L. (1915): Bemerkung \"{u}ber die harmonische
+Reihe. Monatsh. Math. Phys., 26, 132--134. 
+
+\bibitem{} 
+\end{thebibliography}
+
+\bigskip 
+
+\bigskip 
+
+Temporary scratchwork
+
 \end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
