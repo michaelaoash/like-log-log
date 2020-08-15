@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## Run this with "bsub < H3-numerators-prime-factors-lt200-gp.lsf"
+
+#BSUB -n 1                       # number of nodes
+#BSUB -R rusage[mem=2048]	 # ask for memory
+#BSUB -q long			 # which queue we want to run in  [short long interactive]
+#BSUB -R "span[hosts=1]"	 # All job slots in the same node (for threaded applications)
+#BSUB -W 3600                    # wall time in minutes
+#BSUB -J "H3-numerators-prime-factors-lt200-gp"
+#BSUB -o joblogs/H3-numerators-prime-factors-lt200-gp.lsf.out
+#BSUB -e joblogs/H3-numerators-prime-factors-lt200-gp.lsf.err
+
+echo "Hello Job $LSB_JOBID. You are being run on `hostname`"
+
+module load pari/2.11.3 
+
+gp < H3-numerators-prime-factors-lt200.gp > "results/H3-numerators-prime-factors-lt200-gp-$USER-`date`.out"
+
