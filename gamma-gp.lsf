@@ -1,0 +1,19 @@
+#!/bin/bash
+
+## Run this with "bsub < gamma-gp.lsf"
+
+#BSUB -n 1                       # number of nodes
+#BSUB -R rusage[mem=2048]	 # ask for memory
+#BSUB -q long			 # which queue we want to run in  [short long interactive]
+#BSUB -R "span[hosts=1]"	 # All job slots in the same node (for threaded applications)
+#BSUB -W 3600                    # wall time in minutes
+#BSUB -J "gamma-gp"
+#BSUB -o gamma-gp.lsf.out
+#BSUB -e gamma-gp.lsf.err
+
+echo "Hello Job $LSB_JOBID. You are being run on `hostname`"
+
+module load pari/2.11.3 
+
+gp < gamma.gp > "results/gamma-gp-$USER-`date`.out"
+
