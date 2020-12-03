@@ -1,4 +1,4 @@
-odefault(logfile, "H3-numerators-prime-factors-lt200-latex.tex")
+default(logfile, "H3-numerators-prime-factors-lt200-latex.tex")
 default(log, 3) ;
 default(parisize, 1200000000) ;
 default(echo, 1) ;
