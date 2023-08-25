@@ -1,0 +1,82 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsfonts}
+\usepackage{float}
+\usepackage{sw20amm1}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Friday, July 10, 2020 16:41:41}
+%TCIDATA{LastRevised=Wednesday, July 22, 2020 22:17:39}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Articles\SW\Similar to MAA Monthly before 1992">}
+%TCIDATA{Language=American English}
+%TCIDATA{CSTFile=LaTeX article (bright).cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\iffalse
+\newenvironment{proof}[1][Proof]{}{}
+\fi 
+\input{tcilatex}
+\begin{document}
+
+\title{Iterated harmonic numbers}
+\author{J Marshall Ash \and Michael A O Ash \and Rafael Ash \and \'{A}ngel
+Plaza}
+\date{July 10, 2020}
+\maketitle
+
+
+\section{Definitions}
+
+The harmonic numbers are the sequence $\left\{ \frac{1}{1},\frac{1}{1}+\frac{1}{2},\frac{1}{1}+\frac{1}{2}+\frac{1}{3},\cdots \right\} $; we denote them as $H_{1}\left( n\right) :=\sum_{k=1}^{n}\frac{1}{k}$. 
+
+We define reciprocally-weighted harmonic numbers as $\left\{ \frac{1}{w(1) \cdot 1},\frac{1}{w(1) \cdot 1}+\frac{1}{w(2) \cdot 2},\frac{1}{w(1) \cdot 1}+\frac{1}{w(2) \cdot 2}+\frac{1}{w(3) \cdot 3},\cdots \right\} $ for some weighting scheme $w(k)$.  Thus, for example, the harmonic numbers can be written $H_{1}\left( n\right) :=\sum_{k=1}^{n}\frac{1}{w_0(k)\cdot k}$ with all weights $w_{0}(k)=1$.
+
+We denote one entry in the sequence of reciprocally-weighted harmonic numbers by $W (n) := \sum_{k=1}^{n} \frac{1}{w(k)\cdot k}$.
+
+
+In this paper we consider weighting schemes that are themselves harmonic numbers and their iterations. Above, we considered $w_0(k) =1$.  Now consider $w_1(k) = H_{1}(k) $. Call the reciprocally-weighted harmonic numbers in this case
+
+$H_2 (n) := \sum_{k=1}^{n} \frac{1}{w_1(k)\cdot k} = \sum_{k=1}^{n} \frac{1}{H_1(k)\cdot k}$.  Now consider $w_2(k) = H_{2}(k)H_{1}(k) $, i.e., the weights are the second partial product of $H_j$, and now the reciprocally-weighted harmonic numbers are  $H_3 (n) := \sum_{k=1}^{n} \frac{1}{w_2(k)\cdot k} = \sum_{k=1}^{n} \frac{1}{H_{2}(k)H_{1}(k) \cdot k}$
+
+In general, define  $ H_{J}(n) :=   \sum_{k=1}^{n} \frac{1}{\prod_1^{J-1}H_{j}(k)\cdot k} $, i.e., the weights for the reciprocally weighted harmonic numbers are the $J-1$ partial product of the $ H_j(k)$, or $w_j = H_j(k) \cdot H_{j-1}(k) \cdots H_1(k) $.
+
+Similarly define $ G_{J}(k) :=   \sum_{k=1}^{n} \frac{1}{\prod_1^{J-1}L_{j}(k)\cdot k} $, i.e., the weights for the reciprocally weighted harmonic numbers are the $J-1$ partial product of the $ L_j(k)$, or $w_j = L_j(k) \cdot L_{j-1}(k) \cdots L_1(k) $.
+
+
+
+Both $G_J$ and $H_J$ are  reciprocally-weighted harmonic numbers with weights equal to the $J-1$ partial product.
+
+
+
+\end{document}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

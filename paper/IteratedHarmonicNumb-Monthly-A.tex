@@ -1,0 +1,517 @@
+\documentclass{article}
+\usepackage{maa-monthly}
+
+%% IF YOU HAVE FONTS INSTALLED
+%\usepackage{mtpro2}
+%\usepackage{mathtime}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+%% \usepackage{dsfont}
+
+\theoremstyle{theorem}
+\newtheorem{theorem}{Theorem}
+%\newtheorem{thm}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\theoremstyle{definition}
+\newtheorem*{definition}{Definition}
+\newtheorem*{remark}{Remark}
+
+\newcommand{\s}{\sigma}
+\newcommand{\Po}{\mathcal{P}}
+
+\begin{document}
+
+
+\title{Iterated harmonic numbers}
+\markright{Iterated harmonic numbers}
+\author{}%{J Marshall Ash, Michael A O Ash, Rafael Ash, and \'{A}ngel Plaza}
+
+%\subjclass[2010]{Primary:  Secondary: }
+%\keywords{}
+\maketitle
+
+\begin{abstract}
+The harmonic numbers are the sequence $1, 1+1/2, 1+1/2+1/3 \cdots$. Their asymptotic difference
+ from the sequence of the natural logarithm of the positive integers is Euler's constant gamma. 
+ We define a family of natural generalizations of the harmonic numbers. The $j$th iterated harmonic 
+ numbers are a sequence of rational numbers that nests the previous sequences and relates in a similar 
+ way to the sequence of the $j$th iterate of the natural logarithm of positive integers. The analogues 
+ of several well-known properties of the harmonic numbers also hold for the iterated harmonic numbers, 
+ including a generalization of Euler's constant. We reproduce the pretty proof that only the first 
+ harmonic number is an integer and, providing some numeric evidence for the cases $j = 2$ and $j = 3$, 
+ conjecture that the same result holds for all iterated harmonic numbers.
+\end{abstract}
+
+\noindent
+\section{Definitions}
+
+The harmonic numbers are the sequence {\small $\left\{ 1,1+\frac{1}{2},1+\frac{1}{2}+%
+\frac{1}{3},\cdots \right\} $}; we denote them as $h_{1}\left( n\right)
+:=\sum_{k=1}^{n}\frac{1}{k}$. Some of their properties are:
+
+\begin{enumerate}
+\item They are positive rational numbers, starting at $1$ and monotonically
+increasing,
+
+\item They are the partial sums of the divergent infinite series $%
+\sum_{k=1}^{\infty }\frac{1}{k},$
+
+\item They have a direct connection with the natural logarithm, in
+particular there is a constant $\gamma $ so that as $n\rightarrow \infty
+,h_{1}\left( n\right) -\ln n\rightarrow \gamma ,$
+
+\item They are \textquotedblleft close\textquotedblright\ to very similar,
+but convergent, sequences, for example, {\small $\sum_{k=1}^{\infty }\frac{1}{k}$}
+diverges, but, for any fixed small positive number $\epsilon ,$ {\small $%
+\sum_{k=1}^{\infty }\frac{1}{k^{1+\epsilon }}$} converges,
+
+\item The only harmonic number that is an integer is $1$.
+\end{enumerate}
+
+We define the iterated harmonic numbers of order $j$, $h_{j}(n)$, for $%
+j=2,3,\cdots $. First define $h_{2}\left( n\right) :=\sum_{k=1}^{n}\frac{1}{%
+kh_{1}\left( k\right) }$, then $h_{3}\left( n\right) :=\sum_{k=1}^{n}\frac{1%
+}{kh_{1}\left( k\right) h_{2}\left( k\right) },$ and so on. Thus, for every
+integer $j\geq 2,$%
+\begin{equation*}
+h_{j}\left( n\right) :=\sum_{k=1}^{n}\frac{1}{kh_{1}\left( k\right)
+h_{2}\left( k\right) \cdots h_{j-1}\left( k\right) }.
+\end{equation*}
+
+To motivate these definitions, start with $\ln x=\int_{1}^{x}\frac{dt}{t}.$
+Second, let $u=\ln t,du=\frac{dt}{t}$ to see that $\allowbreak \int_{e}^{x}%
+\frac{1}{t\ln t}\,dt=\int_{1}^{\ln x}\frac{du}{u}=\ln \ln x-0,$ so that $\ln
+_{2}x:=\ln \ln x=\int_{e}^{x}\frac{dt}{t\ln t}$. Third, let $u=\ln _{2}t,du=%
+\frac{dt}{t\ln t},$so that $\int_{e^{e}}^{x}\frac{dt}{t\ln t\ln _{2}t}%
+=\int_{1}^{\ln _{2}x}\frac{du}{u}=\ln \left( \ln _{2}x\right) =:\ln _{3}x.$
+By now it is clear that each $h_{j}$ is \textquotedblleft
+like\textquotedblright\ the corresponding iterated logarithm $\ln _{j}$ in
+the sense that given appropriate condition on the function $f$, the sum $%
+\sum_{k=1}^{n}f\left( k\right) $ is \textquotedblleft
+like\textquotedblright\ the integral $\int_{a}^{n}f\left( x\right) dx.$ This
+point will be made a lot more precisely in section~3 where we will prove
+analogues of item 3.
+
+Property 5. was proved in 1915 \cite{T}. Here is an elementary number theory
+proof. Fix $n\geq 2$, choose $r$ maximal so that $2^{r}\leq n,$ and write 
+\begin{eqnarray*}
+h_{1}\left( n\right) &=&1+\frac{1}{2}+\frac{1}{3}+\cdots +\frac{1}{2^{r}}%
++\cdots +\frac{1}{n}=\left( \sum_{k\neq 2^{r}}\frac{a_{k}}{L}\right) +\left( 
+\frac{a_{2^{r}}}{L}\right)  \\
+&=&\frac{\left( \sum_{k\neq 2^{r}}a_{k}\right) +\left( a_{2^{r}}\right) }{L}=:%
+\frac{S+T}{L},
+\end{eqnarray*}%
+where $L=\mbox{lcm}\left\{ 1,2,3,\dots ,n\right\} $ and each $a_{k}$ is the
+integer such that $\frac{1}{k}=\frac{a_{k}}{L}.$ Then $S$ is even, $T$ is
+odd, and $L$ is even. An odd number divided by an even number is not an
+integer. \qed
+
+Here are the details. Fix $k\in \left[ 1,n\right] \backslash \left\{
+2^{r}\right\} $. Then $k=2^{s}m$ with $m$ odd and $%
+s<r. $ This is true because $2^{r}$ is the first positive integer divisible
+by $2^{r};$ and the second positive integer divisible by $2^{r}$ is $2\cdot
+2^{r}=2^{r+1}$ which cannot be $\leq n$ because of the way $r$ was chosen.
+Also $L=2^{r}d$ where we will call the odd integer $d$ the \textit{odd factor%
+} of~$L.$ Then $\frac{1}{k}=\frac{1}{2^{s}m}=\frac{a_{k}}{L}=%
+\frac{a_{k}}{2^{r}d}$, so $a_{k}=\frac{2^{r}d}{2^{s}m}%
+=2^{r-s}\cdot \frac{d}{m}$ with $r-s>0$ and, since~$d$ is the $%
+\mbox{lcm}\ $of the set of all the odd factors of all the positive integers $%
+\leq n$, $\frac{d}{m}$ is an odd integer. So every summand of $S$
+is even and hence $S$ is even. But $\frac{1}{2^{r}}=\frac{a_{2^{r}}}{L},$ so 
+$T=a_{2^{r}}=\frac{L}{2^{r}}=\frac{2^{r}d}{2^{r}}=d$ is odd. Thus $%
+h_{1}\left( n\right) $, a fraction with odd numerator $S+T$ and even
+denominator $L=2^{r}d$, is not an integer.
+
+In section 2 we make the conjecture that property 5. extends to $h_{j}\ $for
+every $j$. For $j=2\ $and $3$ we give substantial numerical evidence in
+support of the conjectures in Table~1. In the case of $h_{2}$, the evidence
+shows that the above proof that the denominator of $h_{1}$ must be a
+multiple of $2$ and so can never be an integer will not work. In the case of 
+$h_{3}$, the evidence gives a lot of hope for finding an extension of the
+original proof.
+
+In section 3 we define for each integer $j$ two analogues of Euler's
+constant $\gamma $. We define $\gamma _{j}^{\prime }$ to be a constant
+satisfying
+
+\begin{equation}
+\sum_{a<k\leq n}\frac{1}{k\ln k\ln _{2}k\cdots \ln _{j-1}k}-\ln
+_{j}n=\gamma _{j}^{\prime }+o\left( 1\right) .  \label{1}
+\end{equation}%
+Here $\ln _{j}x$ denotes the $j$th iterated logarithm: $\ln _{1}x=\ln x,$
+and $\ln _{j}x=\ln (\ln _{j-1}x)$ for $j=2,3,\dots $. (Pick $a=a\left(
+j\right) $ so large that $\ln _{j-1}\left( a\right) \geq 0$; for example, if 
+$j\geq 3,$ one may choose $a$ to be $^{j-2}e$, where the constants $^{j}e$
+are defined recursively by $^{0}e:=1$ and $^{j+1}e:=e^{(e^{j})}$ for $%
+j=1,2,\dots $. This choice is natural, since $\int_{^{j-2}e}^{x}\,\frac{dt}{%
+t\ln t\cdots\ln_{j-1}t}=\ln _{j}x.$) The sum on the left side of equation $%
+\left( \ref{1}\right) $ will be called $l_{j}\left( n\right) $ and is an
+analogue of $h_{j}\left( n\right) $. Note that $l_{1}\left( n\right)
+=h_{1}\left( n\right) $.
+
+We also define $\gamma _{j}$ to be a constant satisfying 
+\begin{equation}
+h_{j}\left( n\right) -\ln _{j}n=\sum_{k=1}^{n}\frac{1}{kh_{1}\left(
+k\right) h_{2}\left( k\right) \cdots h_{j-1}\left( k\right) }-\ln
+_{j}n=\gamma _{j}+o\left( 1\right) .  \label{2}
+\end{equation}%
+Also observe that $\gamma _{1}^{\prime }=\gamma _{1}=\gamma .$ Estimates
+like (\ref{1}) for iterated logarithms are already known, with much better
+estimates for the error term than $o\left( 1\right) $. In section 3, that
+fact will be used as a lemma assisting the proof of a sharper version of (%
+\ref{2}) which will prove the existence of all the $\gamma _{j}$.
+
+The infinite series $\sum_{a<k<\infty }\frac{1}{k\ln k\ln _{2}k\cdots \ln
+_{j-1}k}$ is divergent since by relation (1) its partial sums increase
+unboundedly. However, for each $\epsilon >0,$ the series 
+\begin{equation*}
+\sum_{a<k<\infty }\frac{1}{k\ln k\ln _{2}k\cdots \ln _{j-2}k\left(
+\ln _{j-1}k\right) ^{1+\epsilon }}
+\end{equation*}
+converges \cite{A}. Similar results also hold for iterated harmonic
+numbers. The infinite series 
+\begin{equation*}
+\sum_{k=1}^{\infty }\frac{1}{kh_{1}\left( k\right) h_{2}\left(
+k\right) \cdots h_{j-1}\left( k\right) }
+\end{equation*}%
+is divergent by relation (2). It is not hard to prove that for each $%
+\epsilon >0,$ the series 
+\begin{equation*}
+\sum_{k=1}^{\infty }\frac{1}{kh_{1}\left( k\right) h_{2}\left(
+k\right) \cdots h_{j-2}\left( k\right) \left( h_{j-1}\left( k\right) \right)
+^{1+\epsilon }}
+\end{equation*}
+converges. These pairs of infinite series are \textquotedblleft
+closer\textquotedblright\ to each other as $j$ increases in the sense that
+the divergent one diverges more slowly while the other one converges more
+slowly. The logarithmic examples do not have rational partial sums, but the
+divergent harmonic sums do. If we set $\epsilon =1,$ then the convergent
+harmonic series also have rational partial sums.
+
+The case $j=2$, where {\small $\sum_{k=1}^{\infty }\frac{1}{kh_{1}\left( k\right) }$}
+being divergent is contrasted with {\small $\sum_{k=1}^{\infty }\frac{1}{k\left(
+h_{1}\left( k\right) \right) ^{1+\epsilon }}$} being convergent appears in 
+\cite{AP}. (What we denote as $h_{1}\left( n\right) $ is written as $h_{n}$
+in \cite{AP}.) It provided the main motivation for the idea of defining $j$%
+th iterated harmonic numbers.
+
+\section{A conjecture for n times iterated harmonic numbers}
+
+From the definitions, it is immediate that for each $j\geq 1$, there holds
+the identity 
+\begin{equation*}
+h_{j}\left( 1\right) =1.
+\end{equation*}
+
+\begin{conjecture}
+For each integer $j\geq 2,$ the only $j$th iterated harmonic number that is
+an integer is $h_{j}\left( 1\right) .$
+\end{conjecture}
+
+Recall that when $j=1,$ the statement of the conjecture becomes property 5
+that was mentioned and proved in the introduction.
+
+\textbf{In computing numerical evidence, we restrict interest to the cases
+of }$j=2$\textbf{\ and }$j=3$\textbf{.} Write every rational number $%
+h_{j}\left( n\right) $, $j=2,3$; $n=2,3,\dots $ as a reduced ratio of positive
+integers, $\frac{n_{j}\left( n\right) }{d_{j}\left( n\right) }.$ It suffices
+to prove that each such denominator $d=d_{j}\left( n\right) $ is at least $2$%
+. All the evidence we have accumulated points to the conjecture's truth. The
+rough argument is that the denominators of both $h_{2}\left( n\right) $ and $%
+h_{3}\left( n\right) $ seem to grow steadily larger as $n$ increases,
+whereas the failure of the conjecture would have a denominator of 1
+occurring. The proof for the $h_{1}$ case involved showing that all
+denominators were even and hence not equal to $1$. The evidence for $h_{3}$
+does not rule out such a proof. The evidence for $h_{2}$ rules out an even
+denominator proof. Nevertheless it suggests many other possible proofs. For
+each prime $p$, the $p$-valuation of a positive integer $d=\max \left\{ \nu
+:p^{\nu }|d\right\} $ if $d$ is divisible by $p.$ It will be convenient to
+say that the $p$-valuation of $d$ is zero when $p$ does not divide $d.$.
+Notice that the proof of property 5. given above shows that the $2$%
+-valuation of the denominator of $h_{1}\left( n\right) \ $is $\left\lfloor
+\log _{2}n\right\rfloor $.
+
+\bigskip
+
+\textbf{Numerical evidence when }$j=3:$ We computed the $2$-valuation of the
+(reduced) denominator of $h_{3}\left( n\right) $ for $n=1$ to $2,000$. For $%
+n=1$, the $2$-valuation is, of course,~$0$. For $n=2$ to $n=11$ the $2$%
+-valuation is $2$. For $n=12$, the $2$-valuation is, shockingly,~$0$. From $%
+n=13$ through $n=31$ the $2$-valuation is $3$. From $n=32$ to $n=2,000$, the 
+$2$-valuation is always equal to $6$.
+
+\bigskip
+
+\textbf{Numerical evidence when }$j=2:$ We attempted the $p$-valuations on
+the denominator of $h_{2}\left( n\right) $ for $n=1$ to $n=40,000$ for all
+46 primes less than $200$. We ceased computation when we hit computer system
+limits at $n=27,477.$ The $2$-valuation is always $0$. The $3$-valuation is $%
+1 $ from $n=2$ to $n=53$. The $3$-valuation then alternates irregularly
+between 0 and 1. The left panel of Table~\ref{tab:p-vals-of-H2} shows the
+variation in the 3-valuation of $h_{2}\left( n\right) $ up to $n=27,477$.
+
+
+\begin{table}[h]\small
+\begin{center}
+\label{tab:p-vals-of-H2}\centering
+%\hrule \\ \hrule \\
+\begin{tabular}{rc|rc}
+\hline\hline 
+\multicolumn{2}{c|}{3-valuation of $\mbox{denom}(h_2\left(n\right))$} & 
+\multicolumn{2}{c}{97-valuation of $\mbox{denom}(h_2\left(n\right))$} \\ \hline
+$n$           & 3-valuation & $n$           & 97-valuation \\ \hline\hline
+1             & 0           & 1--10         & 0            \\ 
+2--53         & 1           & 11--95        & 1            \\ 
+54--62        & 0           & 96--9,322     & 2            \\ 
+63--65        & 1           & 9,323--9,407  & 1            \\ 
+66--161       & 0           & 9,408--27,477 & 0            \\ 
+162--188      & 1           &               &              \\ 
+189--197      & 0           &               &              \\ 
+198--1,457    & 1           &               &              \\ 
+1,458--1,700  & 0           &               &              \\ 
+1,701--1,781  & 1           &               &              \\ 
+1,782--4,373  & 0           &               &              \\ 
+4,372--5,102  & 1           &               &              \\ 
+5,103--5,345  & 0           &               &              \\ 
+5,346--27,477 & 1           &               & 
+\end{tabular}
+\caption{Selected $p$-valuations of the denominator of $h_2\left(n\right)$. These data were calculated using PARI/GP \cite{Pa}.}
+\end{center}
+\end{table}
+
+The $5$-valuation is $2$ from $n=4$ to $n=2,499$. The $5$-valuation is then $%
+0 $ from $n=2,500$ to $n=2,999$. The 5-valuation is then 1 from $n=3,000$ to 
+$n=12,499$, and then the $5$-valuation remains at $2$ through the end of the
+run (at $n=27,477$).
+
+Of the 43 remaining primes less than $200$, all of them enter with non-zero $%
+p$-valuations as $n$ grows. For some primes the first non-zero valuation is $%
+1$ and in other cases the first non-zero $p$-valuation is $2$. For example,
+up to $n=6$, the 7-valuation is $0$; beginning with $n=6$, the $7$-valuation
+is $2$ through the end of the run. Only the $11$-valuation exceeds $2$ in
+the run; at $n=848$, the $11$-valuation of $h_{2}\left( n\right) $ becomes $%
+3 $ and remains $3$ through the end of the run.
+
+% \begin{table}[]
+% \caption{97-valuation of the denominator of $h_2\left(n\right)$}
+% \label{tab:97-val-of-H2}\centering
+% \begin{tabular}{cc}
+% 97-valuation of $h_2\left(n\right)$ & $n$ \\ 
+% 0 & 1--10, 9,408-- \\ 
+% 1 & 11--95, 9,323--9,407 \\ 
+% 2 & 96--9,322%
+% \end{tabular}%
+% \end{table}
+
+% \begin{table}[tbp]
+% \caption{97-valuation of the denominator $h_{2}\left( n\right) $}
+% \label{tab:97-val-of-H2-alt}\centering
+% \begin{tabular}{rc}
+% $n$ & 97-valuation of $\mbox{denom}(h_{2}\left( n\right))$ \\ 
+% 1--10 & 0 \\ 
+% 11--95 & 1 \\ 
+% 96--9,322 & 2 \\ 
+% 9,323--9,407 & 1 \\ 
+% 9,408--27,477 & 0 \\ 
+% & 
+% \end{tabular}%
+% \end{table}
+
+With a single exception among the primes between 7 and 200, once the prime
+acquires a non-zero $p$-valuation, the $p$-valuation does not decline. At $%
+n=9,323$, the $97$-valuation returns to $1$ (from $2$), and beginning at $%
+n=9,408$, the $97$-valuation falls to 0 where it remains through the
+remainder of the run. Thus, from $n=9,408$ through the end of the run ($%
+n=27,477$), $2$ and $97$ are the only primes less than $200$ for which in
+the denominator of $h_{2}\left( n\right) $ has a $p$-valuation of zero. The
+behavior of the $97$-valuation is tabulated in right panel of Table~\ref%
+{tab:p-vals-of-H2}.
+
+Our best guess is that all the odd $h_{j}$ have similar behavior so that
+the conjecture will be true for the $j$th iterated harmonic numbers and
+provable by showing the $2$-valuation of the denominators to be positive. We
+also guess that the conjecture will hold for all the even $h_{j}$, but that
+the proof will be quite difficult.
+
+\section{Asymptotic estimates for iterated harmonic numbers}
+
+Recall $l_{j}\left( n\right) $ was defined just after equation (\ref{1}) to
+be equal to {\small $\sum_{a<k\leq n}\frac{1}{k\ln k\ln _{2}k\cdots \ln _{j-1}k}$}
+for an appropriate constant $a$.
+
+\begin{theorem}
+\label{Th1}Notice that $l_{1}\left( n\right) =h_{1}\left( n\right) $ for $%
+n\geq 1.$ For each integer $j\geq 2,$ there is a constant $\gamma
+_{j}^{\prime }$ such that%
+{\small\begin{equation}
+l_{j}(n)-\ln _{j}\left( n\right) =\gamma _{j}^{\prime }+\frac{1}{2n\ln n\ln
+_{2}n\cdots \ln _{j-1}n}+O\left( \frac{1}{n^{2}\ln n\ln _{2}n\cdots \ln
+_{j-1}n}\right) .
+\end{equation}}
+\end{theorem}
+
+\begin{proof}
+The function {\small $f\left( x\right) =\frac{1}{x\ln x\ln _{2}x\cdots \ln _{j-1}x}$}
+has antiderivative $\ln _{j}\left( x\right) $ and satisfies {\small $f^{\prime
+\prime }\left( n\right) =O\left( \frac{1}{n^{3}\ln n\ln _{2}n\cdots \ln
+_{j-1}n}\right) $.} Apply the Euler summation formula to $f$.
+\end{proof}
+
+We write $f\left( n\right) \asymp g\left( n\right) $ to mean that there are
+two positive constants $a$ and $b$ so that $af\left( n\right) <g\left(
+n\right) <bf\left( n\right) $; in words, $f$ is of the same order as $g.$ 
+\cite[page 7]{HW}
+
+\begin{theorem}
+\label{Th2}It is well known that 
+\begin{equation}
+h_{1}\left( n\right) -\ln n-\gamma \asymp \frac{1}{n}  \label{6}
+\end{equation}%
+where $\gamma =.577\dots $ is Euler's constant. For each integer $j\geq 2,$ $%
+h_{j}\left( n\right) $ tends to $\infty $ at the same rate as the $j$th
+iterated logarithm. More quantitatively, for every $j=2,3,\dots ,$ there are
+constant $\gamma _{j}$ such that%
+\begin{equation}
+h_{j}\left( n\right) -\ln _{j}n-\gamma _{j}\asymp \frac{1}{\ln _{j-1}n}.
+\label{5}
+\end{equation}%
+We illustrate an inductive proof by working out the $j=4$ step. We assume
+that relation (5) holds for $j=2$ and $j=3$. We estimate
+\end{theorem}
+
+\begin{proof}
+\begin{equation*}
+h_{4}\left( n\right) -l_{4}\left( n\right) =\sum_{k=a}^{n}\frac{1}{%
+kh_{1}\left( k\right) h_{2}\left( k\right) h_{3}\left( k\right) }-\frac{1}{%
+k\ln k\ln _{2}k\ln _{3}k},
+\end{equation*}%
+where $a=\left\lceil e^{e}\right\rceil =16\ $is the smallest positive
+integer for which $\ln _{3}$ is positive. We subtract and add successively $%
+\frac{1}{kh\left( k\right) h_{\left( 2\right) }k\ln _{3}k}$ and $\frac{1}{%
+kh\left( k\right) \ln _{2}k\ln _{3}k}$ to the $k$th summand, getting%
+\begin{equation*}
+\sum_{k=a}^{n}\left\{ 
+\begin{array}{c}
+\frac{1}{kh_{1}\left( k\right) h_{2}\left( k\right) h_{3}\left( k\right) }-%
+\frac{1}{kh_{1}\left( k\right) h_{2}\left( k\right) \ln _{3}k}+ \\ 
+\frac{1}{kh_{1}\left( k\right) h_{2}\left( k\right) \ln _{3}k}-\frac{1}{%
+kh_{1}\left( k\right) \ln _{2}k\ln _{3}k}+ \\ 
+\frac{1}{kh_{1}\left( k\right) \ln _{2}k\ln _{3}k}-\frac{1}{k\ln k\ln
+_{2}k\ln _{3}k}%
+\end{array}%
+\right\} =\left\{ 
+\begin{array}{c}
+I+ \\ 
+II+ \\ 
+III%
+\end{array}%
+\right\} .
+\end{equation*}%
+Use relation (\ref{5}) with $j=3$ to decompose $I$ into $I_{A}$ and $I_{B},$%
+\begin{eqnarray*}
+I &=&\sum_{k=a}^{n}\frac{\ln _{3}k-h_{3}\left( k\right) }{kh\left( k\right)
+h_{2}\left( k\right) h_{3}\left( k\right) \ln _{3}k}= \\
+&&\underset{I_{A}}{\underbrace{\sum_{k=a}^{n}\frac{\gamma _{3}}{kh\left(
+k\right) h_{2}\left( k\right) h_{3}\left( k\right) \ln _{3}k}}}+\underset{%
+I_{B}}{\underbrace{\sum_{k=a}^{n}O\left( \frac{1}{kh\left( k\right)
+h_{2}\left( k\right) h_{3}\left( k\right) \ln _{3}k\ln _{2}k}\right) }}
+\end{eqnarray*}%
+It follows from relation (\ref{6}) that $h_{1}\left( k\right) \asymp \ln k.$
+Also there hold $h_{2}\left( k\right) \asymp \ln _{2}k,$ and $h_{3}\left(
+k\right) \asymp \ln _{3}k,$ so that from $\int_{x}^{\infty }\frac{dt}{t\ln
+t\ln _{2}t\ln _{3}^{2}t}=\frac{1}{\ln _{3}x}\ $and the integral test we may
+write $I_{A}$ as $C_{A}-R_{A},$where $C_{A}$ is the value of the entire
+infinite sum from $a$ to $\infty \ $and $R_{A}\asymp \sum_{k=n+1}^{\infty }%
+\frac{1}{k\ln k\ln _{2}k\ln _{3}^{2}k}\asymp \frac{1}{\ln _{3}\left(
+n+1\right) }\asymp \frac{1}{\ln _{3}n}.$ The argument for $I_{B}$ is the
+same, but now the relevant integral is $\int_{x}^{\infty }\frac{dt}{\left(
+\ln _{2}t\right) \left( t\ln t\ln _{2}t\ln _{3}^{2}t\right) }<\frac{1}{\ln
+_{2}x\ln _{3}x},$ so $I_{B}=C_{B}-R_{B}$ where $R_{B}=O\left( \frac{1}{\ln
+_{2}n\ln _{3}n}\right) $ is of smaller order than $R_{A}.$ Thus $%
+I-(C_{A}+C_{B})\asymp \frac{1}{\ln _{3}n}.$
+
+Similar calculations show that there are constants $C_{II}$ and $C_{III}$
+and so that $II=C_{II}-R_{II}$ and $III=C_{III}-R_{III}$ with both
+remainders of smaller order than $\frac{1}{\ln _{3}n}.$ We have shown that $%
+h_{4}\left( n\right) -l_{4}\left( n\right) -\left(
+C_{A}+C_{B}+C_{II}+C_{III}\right) \asymp \frac{1}{\ln _{3}n}$. By Theorem %
+\ref{Th1}, $l_{4}(n)-\ln _{4}\left( n\right) =\gamma _{4}^{\prime }+O\left( 
+\frac{1}{n\ln n\ln _{2}n\ln _{3}n}\right) .$ So defining $\gamma
+_{4}=C_{A}+C_{B}+C_{II}+C_{III},$ we have shown that $h_{4}\left( n\right)
+-\ln _{4}n-\gamma _{4}\asymp \frac{1}{\ln _{3}n}.$
+\end{proof}
+
+Here is an infinite list of very difficult open questions.
+
+\begin{conjecture}
+Are all the $\gamma _{j}$ and $\gamma _{j}^{\prime }$ transcendental, or at
+least irrational? This is a very well known open question when $j=1$. In
+this case $\gamma _{1}=\gamma _{1}^{\prime }=\gamma $, where $\gamma
+=.577... $ is Euler's constant.
+\end{conjecture}
+
+\textbf{Musings.} With respect to the main conjecture, we have a feeling
+that the odd iteration cases all involve the 2-valuations and may be more
+like the $j=1$ classical case and the even iteration cases may all be
+similar to the $j=2$ case. In particular, $j=3$ may be the easiest of all
+the open cases.
+
+Comparing Theorems \ref{Th1} and \ref{Th2} shows that the $\gamma
+_{j}^{\prime }$ can easily be estimated to several decimal places, while the 
+$\gamma _{j}$ cannot. That is, although $h_{j}-\gamma _{j}$ is indeed an
+estimator for the $j$th iterated logarithm, it is not nearly as good as $%
+l_{j}-\gamma _{j}^{\prime }.$ The $h_{j}$ are rational, but they do not give
+practical rational approximations for iterated logarithms.
+
+There have been other generalization of the harmonic numbers, but their
+definitions seem to be different from ours. There are various
+generalizations of Euler's constant~$\gamma $ associated with the name
+Stieltjes, but their definitions also seem to be different from ours. As we
+have already mentioned, our definition is motivated by the formal similarity
+of $h_{j}$ and $l_{j}.$
+
+
+
+\begin{acknowledgment}{Acknowledgment.}
+\end{acknowledgment}
+
+\begin{thebibliography}{1}
+\bibitem{A} Ash, J. M. (2009): Series involving iterated logarithms.
+\textit{College Math. J.} 40: 40--42. % https://condor.depaul.edu/\symbol{126}%mash/iteratedlogs2.1.pdf
+
+\bibitem{AP} Ash, J. M., Plaza, \'{A} (to appear).  $\sum_{n=2}^{\infty }\frac{%
+1}{nh_{n-1}}$ diverges while $\sum_{n=2}^{\infty }\frac{1}{n\left(
+h_{n}\right) ^{1+\epsilon }}$ converges. \textit{The Mathematical Gazette.} %, to appear. https://condor.depaul.edu/\symbol{126}mash/div\_conv\_nHn.pdf
+
+\bibitem{HW} Hardy, G. H., Wright, E. M. (1960). An Introduction to the Theory
+of Numbers. 4th ed., Oxford Univ. Press, Oxford.
+
+\bibitem{Pa} The PARI~Group (2019). PARI/GP version \texttt{2.11.2}, Univ. Bordeaux.
+
+\bibitem{T} Theisinger, L. (1915): Bemerkung \"{u}ber die harmonische
+Reihe. \textit{Monatsh. Math. Phys.} 26: 132--134.
+\end{thebibliography}
+
+
+%\begin{affil}
+%Department of Mathematics, DePaul University, 2320 N Kenmore Avenue, Chicago IL 60614.\\
+%mash@depaul.edu,\quad 
+%\end{affil}
+
+
+\vfill\eject
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
